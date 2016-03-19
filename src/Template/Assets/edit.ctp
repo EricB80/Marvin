@@ -27,7 +27,7 @@
             echo $this->Form->input('asset_model_id', ['options' => $assetModels]);
             echo $this->Form->input('location_id', ['options' => $locations]);
             echo $this->Form->input('memory');
-            echo $this->FOrm->input('firmware_version');
+            echo $this->Form->input('firmware_version');
             echo $this->Form->input('notes');
         ?>
     </fieldset>
