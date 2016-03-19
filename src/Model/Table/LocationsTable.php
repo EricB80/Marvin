@@ -25,7 +25,7 @@ class LocationsTable extends Table
         parent::initialize($config);
 
         $this->table('locations');
-        $this->displayField('id');
+        $this->displayField('location_desc');
         $this->primaryKey('id');
     }
 

@@ -61,9 +61,9 @@ class AssetsController extends AppController
                 $this->Flash->error(__('The asset could not be saved. Please, try again.'));
             }
         }
-        $departments = $this->Assets->Departments->find('list', ['limit' => 200]);
-        $assetModels = $this->Assets->AssetModels->find('list', ['limit' => 200]);
-        $locations = $this->Assets->Locations->find('list', ['limit' => 200]);
+        $departments = $this->Assets->Departments->find('list');
+        $assetModels = $this->Assets->AssetModels->find('list');
+        $locations = $this->Assets->Locations->find('list');
         $this->set(compact('asset', 'departments', 'assetModels', 'locations'));
         $this->set('_serialize', ['asset']);
     }
@@ -92,7 +92,9 @@ class AssetsController extends AppController
         $departments = $this->Assets->Departments->find('list', ['limit' => 200]);
         $assetModels = $this->Assets->AssetModels->find('list', ['limit' => 200]);
         $locations = $this->Assets->Locations->find('list', ['limit' => 200]);
-        $this->set(compact('asset', 'departments', 'assetModels', 'locations'));
+        $uses = $this->Assets->AssetUses->find('list');
+        $free_fields = $this->Assets->FreeFields->find('all');
+        $this->set(compact('asset', 'departments', 'assetModels', 'locations', 'uses'));
         $this->set('_serialize', ['asset']);
     }
 

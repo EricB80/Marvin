@@ -42,6 +42,14 @@ class AssetsTable extends Table
             'foreignKey' => 'location_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('AssetUses', [
+            'foreignKey' => 'use_id',
+            'joinType' => 'LEFT'
+        ]);
+        $this->belongsTo('FreeFields', [
+            'foreignKey'=>'id',
+            'joinType' => 'LEFT'
+        ]);
     }
 
     /**

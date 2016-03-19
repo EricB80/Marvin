@@ -1,17 +1,17 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Department;
+use App\Model\Entity\AssetUse;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Departments Model
+ * AssetUses Model
  *
  */
-class DepartmentsTable extends Table
+class AssetUsesTable extends Table
 {
 
     /**
@@ -24,9 +24,11 @@ class DepartmentsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('departments');
-        $this->displayField('dept_desc');
+        $this->table('asset_uses');
+        $this->displayField('use_desc');
         $this->primaryKey('id');
+
+        $this->addBehavior('Timestamp');
     }
 
     /**
@@ -42,8 +44,8 @@ class DepartmentsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('dept_desc', 'create')
-            ->notEmpty('dept_desc');
+            ->requirePresence('use_desc', 'create')
+            ->notEmpty('use_desc');
 
         return $validator;
     }

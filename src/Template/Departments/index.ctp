@@ -20,7 +20,7 @@
             <?php foreach ($departments as $department): ?>
             <tr>
                 <td><?= $this->Number->format($department->id) ?></td>
-                <td><?= $this->Number->format($department->dept_desc) ?></td>
+                <td><?= $department->dept_desc ?></td>
                 <td><?= h($department->created_date) ?></td>
                 <td><?= h($department->modified_date) ?></td>
                 <td class="actions">
