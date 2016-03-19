@@ -23,8 +23,11 @@
         <?php
             echo $this->Form->input('asset_tag');
             echo $this->Form->input('department_id', ['options' => $departments, 'empty' => true]);
+            echo $this->Form->input('use_id', ['options'=> $uses]);
             echo $this->Form->input('asset_model_id', ['options' => $assetModels]);
             echo $this->Form->input('location_id', ['options' => $locations]);
+            echo $this->Form->input('memory');
+            echo $this->FOrm->input('firmware_version');
             echo $this->Form->input('notes');
         ?>
     </fieldset>
