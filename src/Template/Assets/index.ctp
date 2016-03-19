@@ -19,6 +19,7 @@
                 <th><?= $this->Paginator->sort('department_id') ?></th>
                 <th><?= $this->Paginator->sort('asset_model_id') ?></th>
                 <th><?= $this->Paginator->sort('location_id') ?></th>
+                <th><?= $this->Paginator->sort('memory') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -29,6 +30,7 @@
                 <td><?= $asset->has('department') ? $this->Html->link($asset->department->dept_desc, ['controller' => 'Departments', 'action' => 'view', $asset->department->id]) : '' ?></td>
                 <td><?= $asset->has('asset_model') ? $this->Html->link($asset->asset_model->model_desc, ['controller' => 'AssetModels', 'action' => 'view', $asset->asset_model->id]) : '' ?></td>
                 <td><?= $asset->has('location') ? $this->Html->link($asset->location->location_desc, ['controller' => 'Locations', 'action' => 'view', $asset->location->id]) : '' ?></td>
+                <td><?= $asset->has('memory') ? $asset->memory.'gb' : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $asset->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $asset->id]) ?>
