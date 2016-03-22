@@ -45,16 +45,6 @@ class LocationsTable extends Table
             ->requirePresence('location_desc', 'create')
             ->notEmpty('location_desc');
 
-        $validator
-            ->dateTime('created_date')
-            ->requirePresence('created_date', 'create')
-            ->notEmpty('created_date');
-
-        $validator
-            ->dateTime('modified_date')
-            ->requirePresence('modified_date', 'create')
-            ->notEmpty('modified_date');
-
         return $validator;
     }
 }

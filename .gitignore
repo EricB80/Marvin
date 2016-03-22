@@ -6,3 +6,4 @@
 /composer.json
 /phpunit.xml.dist
 /plugins/
+/nbproject/private/
