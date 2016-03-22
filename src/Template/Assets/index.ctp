@@ -1,18 +1,6 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Asset'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Departments'), ['controller' => 'Departments', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Department'), ['controller' => 'Departments', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Asset Models'), ['controller' => 'AssetModels', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Asset Model'), ['controller' => 'AssetModels', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Locations'), ['controller' => 'Locations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Location'), ['controller' => 'Locations', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="assets index large-9 medium-8 columns content">
     <h3><?= __('Assets') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table table-bordered table-condensed">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('asset_tag') ?></th>

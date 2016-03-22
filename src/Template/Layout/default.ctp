@@ -12,45 +12,71 @@
  * @since         0.10.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
-$cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
+<?= $this->Html->charset() ?>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+    <?= $this->fetch('title') ?>
+</title>
+<?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
-
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+<?= $this->Html->css('bootstrap.css') ?>
+<?= $this->Html->css('bootstrap-theme.min.css') ?>
+<?= $this->Html->script('jquery-1.12.2.js') ?>
+<?= $this->Html->script('bootstrap.min.js') ?>
+             
+<?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
-            </ul>
+<nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- mobile friendly navbar toggle. gotta make this work on iphone!! -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="main_nav">
+                        <span class="sr-only">Open Nav</span>
+                        <span class="icon-bar"> </span>
+                        <span class="icon-bar"> </span>
+                        <span class="icon-bar"> </span>
+                    </button>
+                    <a class="navbar-brand" href="#">MARVIN</a>
+                </div>
+                
+                <!-- actual links here -->
+                <div class="collapse navbar-collapse" id="main_nav">
+                    <ul class="nav navbar-nav">
+                        <li><?= $this->Html->link(__('New Asset'), ['controller'=>'Assets', 'action' => 'add'])?></li>
+                        <li><a href="#">Find Asset</a></li>
+                        <li><a href="#">Reporting</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Manage System<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><?= $this->Html->link(__('Asset Types'), ['controller'=>'AssetTypes', 'action' => 'index'])?></li>
+                                <li><?= $this->Html->link(__('Asset Models'), ['controller'=>'AssetModels', 'action' => 'index'])?></li>
+                                <li><?= $this->Html->link(__('Asset Uses'), ['controller'=>'AssetUses', 'action' => 'index'])?></li>
+                                <li role="seperator" class="divider"></li>
+                                <li><?= $this->Html->link(__('Locations'), ['controller'=>'Locations', 'action' => 'index'])?></li>
+                                <li role="seperator" class="divider"></li>
+                                <li><?= $this->Html->link(__('Manufacturers'), ['controller'=>'Manufacturers', 'action' => 'index'])?></li>
+                                <li><?= $this->Html->link(__('Departments'), ['controller'=>'Departments', 'action' => 'index'])?></li>
+                            </ul>
+                        </li>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="tag_search" placeholder="Search by Asset Tag">
+                            </div>
+                            <button type="submit" class="btn btn-default">Search</button>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+                <?= $this->Flash->render() ?>
+                    <?= $this->fetch('content') ?>
         </div>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
-    </div>
     <footer>
     </footer>
 </body>
